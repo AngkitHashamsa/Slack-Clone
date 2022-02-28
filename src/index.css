@@ -5,6 +5,7 @@
   --newMessage-color: #1264a3;
   --seeUpgrade-color: #007a5a;
   --online-color: #2bac76;
+  --transition: 0.3s all linear;
 }
 *,
 ::after,
