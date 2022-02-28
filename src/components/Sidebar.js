@@ -9,7 +9,8 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Sidebar = () => {
   const location = useLocation();
-  console.log(location);
+  console.log(location.pathname.split("").slice(1).join(""));
+  let newPath = location.pathname.split("").slice(1).join();
   return (
     <SideBarContainer>
       <SideBarHeader>
@@ -27,7 +28,8 @@ const Sidebar = () => {
         {sideBardata.map((item) => {
           return (
             <li
-              className={`${location.pathname === item.path && "active"}  `}
+              className={`${newPath === item.path && "active"}  `}
+              // className="active"
               key={item.id}
             >
               <NavLink className="nav" to={item.path}>
@@ -102,7 +104,7 @@ const SideBarOptionContainer = styled.ul`
     text-align: center;
     margin: 0.25rem 0;
     width: 100%;
-
+    /* border: 2px solid red; */
     :hover {
       background: var(--Navbar-color);
     }
@@ -112,9 +114,10 @@ const SideBarOptionContainer = styled.ul`
       padding: 0.25rem 0.75rem;
       width: 100%;
       color: white;
-      margin-left: 1rem;
+      /* margin-left: 1rem; */
       .mrRight {
         margin-right: 1.5rem;
+        margin-left: 1rem;
       }
     }
   }
