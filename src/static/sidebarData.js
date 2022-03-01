@@ -48,10 +48,10 @@ export const sideBardata = [
     name: "fileBrowser",
     icon: <FileCopyIcon />,
   },
-  {
-    id: "showLess",
-    path: "showLess",
-    name: "show less",
-    icon: <ExpandLessIcon />,
-  },
+  // {
+  //   id: "showLess",
+  //   path: "showLess",
+  //   name: "show less",
+  //   icon: <ExpandLessIcon />,
+  // },
 ];
