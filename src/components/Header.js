@@ -38,6 +38,7 @@ const StyledBadge = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   square: {
     borderRadius: "0.5rem",
+    cursor: "pointer",
   },
 }));
 const Header = () => {
