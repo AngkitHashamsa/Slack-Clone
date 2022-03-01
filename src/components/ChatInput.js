@@ -4,9 +4,11 @@ import Button from "@material-ui/core/Button";
 import { useRef } from "react";
 import * as firebase from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 const ChatInput = ({ id, roomName }) => {
   const inputField = useRef(null);
   // console.log(id);
+  const [user] = useAuthState(firebase.auth);
   const sendMessage = async (e) => {
     e.preventDefault();
     console.log("hello");
@@ -20,13 +22,13 @@ const ChatInput = ({ id, roomName }) => {
         {
           message: inputField.current.value,
           timestamp: serverTimestamp(),
-          user: "Angkit",
+          user: user?.displayName,
           userImage:
             "https://media.istockphoto.com/photos/big-and-small-picture-id172759822?b=1&k=20&m=172759822&s=170667a&w=0&h=kkmaR2OYuS14rTiEotbzXoBecwnRePNC79Jsgl3M4dY=",
         }
       );
       inputField.current.value = "";
-      console.log("Document written with ID: ", docRef.id);
+      // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }

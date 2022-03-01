@@ -1,6 +1,6 @@
 import * as constant from "../../constants";
 const initialState = {
-  loggedUser: [],
+  loggedUser: null,
 };
 
 const userReducer = (state = initialState, action) => {

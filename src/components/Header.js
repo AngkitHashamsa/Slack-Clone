@@ -7,6 +7,12 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Badge from "@material-ui/core/Badge";
 import penguine from "../static/images/avatar-1295398__340.png";
+// import { useSelector } from "react-redux";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import * as firebase from "../firebase";
+import Menu from "./Menu";
 const StyledBadge = withStyles((theme) => ({
   badge: {
     backgroundColor: "#44b700",
@@ -43,6 +49,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Header = () => {
   const classes = useStyles();
+  const [user] = useAuthState(firebase.auth);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  // console.log(profileImage);
+
+  const logOut = () => {
+    signOut(firebase.auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/login");
+        localStorage.clear();
+
+        handleClose();
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <Container>
       {/* header left */}
@@ -60,21 +91,25 @@ const Header = () => {
       </HeaderSearch>
       <HeaderRight>
         <HelpOutlineIcon />
-        <StyledBadge
-          overlap="circular"
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          variant="dot"
-        >
-          <Avatar
-            alt="Remy Sharp"
-            src={penguine}
-            variant="square"
-            className={classes.square}
-          />
-        </StyledBadge>
+        <div style={{ cursor: "pointer" }} onClick={handleClick}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            variant="dot"
+          >
+            <Avatar
+              alt="Remy Sharp"
+              src={user?.photoURL || penguine}
+              variant="square"
+              className={classes.square}
+            />
+          </StyledBadge>
+        </div>
+
+        <Menu anchorEl={anchorEl} handleClose={handleClose} logOut={logOut} />
       </HeaderRight>
     </Container>
   );

@@ -124,10 +124,33 @@ export default Sidebar;
 
 const SideBarContainer = styled.aside`
   color: white;
-
+  padding-top: 3.7rem;
   /* border: 2px solid red; */
   background-color: var(--sideBar-color);
   max-width: 280px;
+
+  :hover {
+    overflow: auto;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-color);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-color);
+  }
 `;
 const SideBarHeader = styled.header`
   display: flex;

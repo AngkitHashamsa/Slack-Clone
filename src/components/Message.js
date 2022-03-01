@@ -2,15 +2,15 @@
 import styled from "styled-components";
 // import React, { useRef } from "react";
 import React, { useEffect, useRef } from "react";
-const Message = ({ data = [], loading, id }) => {
+const Message = ({ data = [], loading }) => {
   const { message, user, timestamp, userImage } = data;
   // console.log(data);
   const chatRef = useRef(null);
   useEffect(() => {
     chatRef?.current?.scrollIntoView();
 
-    console.log(chatRef?.current);
-  }, [loading, id]);
+    // console.log(chatRef?.current);
+  }, [loading]);
   // chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   return (
     <MessageContainer ref={chatRef}>

@@ -26,7 +26,7 @@ const SingelMesage = () => {
   //   console.log(chatRef?.current);
   // }, [loading, id]);
   return (
-    <div>
+    <Container>
       <Header>
         <HeaderLeft>
           <h4>
@@ -52,23 +52,59 @@ const SingelMesage = () => {
       </ChatContainer>
 
       <ChatInput id={id} roomName={roomName} />
-    </div>
+    </Container>
   );
 };
 
 export default SingelMesage;
 
-const ChatBottom = styled.div`
-  border: 1px solid red;
+// const ChatBottom = styled.div`
+//   border: 1px solid red;
+// `;
+
+const Container = styled.div`
+  position: relative;
+  /* border: 2px red solid; */
+  margin-top: 3.7rem;
+  /* padding-top: 3.7rem; */
 `;
 
 const ChatContainer = styled.header`
   height: calc(100vh - 12.5rem);
-  overflow: auto;
+
+  overflow: hidden;
+  position: absolute;
+  top: 2;
+  left: 0;
+  right: 0;
+
+  :hover {
+    overflow: auto;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    padding-right: 1rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-color);
+    border-radius: 10px;
+    height: 5rem;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: gray;
+  }
 `;
 const Header = styled.div`
   display: flex;
-  margin-top: 3.5rem;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
