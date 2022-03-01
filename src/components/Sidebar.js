@@ -124,7 +124,7 @@ export default Sidebar;
 
 const SideBarContainer = styled.aside`
   color: white;
-  margin-top: 3.5rem;
+
   /* border: 2px solid red; */
   background-color: var(--sideBar-color);
   max-width: 280px;
