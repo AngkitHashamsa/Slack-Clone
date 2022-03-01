@@ -43,8 +43,14 @@ const Header = styled.div`
 const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
+  h4 {
+    margin-right: 10px;
+  }
 `;
 const HeaderRight = styled.div`
   display: flex;
   align-items: center;
+  span {
+    margin-left: 10px;
+  }
 `;
