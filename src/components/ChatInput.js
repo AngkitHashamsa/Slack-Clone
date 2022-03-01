@@ -23,8 +23,7 @@ const ChatInput = ({ id, roomName }) => {
           message: inputField.current.value,
           timestamp: serverTimestamp(),
           user: user?.displayName,
-          userImage:
-            "https://media.istockphoto.com/photos/big-and-small-picture-id172759822?b=1&k=20&m=172759822&s=170667a&w=0&h=kkmaR2OYuS14rTiEotbzXoBecwnRePNC79Jsgl3M4dY=",
+          userImage: user?.photoURL,
         }
       );
       inputField.current.value = "";

@@ -10,7 +10,7 @@ import penguine from "../static/images/avatar-1295398__340.png";
 // import { useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import * as firebase from "../firebase";
 import Menu from "./Menu";
 const StyledBadge = withStyles((theme) => ({
@@ -55,19 +55,20 @@ const Header = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+  const auth = getAuth();
+  console.log(firebase.auth);
   const handleClose = () => {
     setAnchorEl(null);
   };
   // console.log(profileImage);
 
   const logOut = () => {
-    signOut(firebase.auth)
-      .then(() => {
+    signOut(auth)
+      .then((data) => {
         // Sign-out successful.
         navigate("/login");
         localStorage.clear();
-
+        // console.log("sign up success");
         handleClose();
       })
       .catch((error) => {

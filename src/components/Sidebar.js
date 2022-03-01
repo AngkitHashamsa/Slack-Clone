@@ -15,6 +15,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 // import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import * as actions from "../Redux/actions";
 import { useDispatch } from "react-redux";
+
 const Sidebar = () => {
   const location = useLocation();
   // console.log(location.pathname.split("").slice(1).join(""));
