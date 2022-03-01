@@ -22,13 +22,14 @@ export default Layout;
 
 const Container = styled.div`
   /* display: flex; */
+  margin-top: 5rem;
+  height: 100vh;
   display: grid;
   grid-template-columns: 280px 4fr;
 `;
 const MainContainer = styled.main`
-  margin-top: 4rem;
   padding: 0 0 2rem 0;
   /* border: 2px red solid; */
-  overflow-y: auto;
+
   height: 100vh;
 `;

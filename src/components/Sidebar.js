@@ -123,13 +123,9 @@ const Sidebar = () => {
 export default Sidebar;
 
 const SideBarContainer = styled.aside`
-  /* position: fixed; */
-  margin-top: 3.6rem;
   color: white;
-  /* left: 0;
-  bottom: 0; */
-  height: 100vh;
-
+  margin-top: 3.5rem;
+  /* border: 2px solid red; */
   background-color: var(--sideBar-color);
   max-width: 280px;
 `;
